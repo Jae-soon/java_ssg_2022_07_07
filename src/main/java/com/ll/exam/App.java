@@ -1,6 +1,5 @@
 package com.ll.exam;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -23,6 +22,9 @@ public class App {
                     System.out.print("작가 : ");
                     String author = sc.nextLine().trim();
                     int id = wiseSayingIndexId++;
+
+                    WiseSaying wiseSaying = new WiseSaying(id, sentence, author);
+
                     System.out.println(id + "번 명령이 등록되었습니다.");
                     break;
 
