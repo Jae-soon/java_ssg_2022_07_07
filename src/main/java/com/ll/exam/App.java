@@ -5,14 +5,11 @@ import java.util.Scanner;
 
 public class App {
     public void run() {
-        int id;
-        String sentence;
-        String author;
-        ArrayList<Word> wordList = new ArrayList<>();
-        Word word1;
-
         System.out.println("== 명언 SSG ==");
         Scanner sc = new Scanner(System.in);
+
+        // 가장 마지막 명언글의 번호
+        int wiseSayingIndexId = 0;
 
         outer:
         while (true) {
@@ -21,14 +18,12 @@ public class App {
 
             switch (cmd) {
                 case "등록":
-                    id = wordList.size() + 1;
                     System.out.print("명언 : ");
-                    sentence = sc.nextLine().trim();
+                    String sentence = sc.nextLine().trim();
                     System.out.print("작가 : ");
-                    author = sc.nextLine().trim();
-                    word1 = new Word(id, sentence, author);
-                    wordList.add(word1);
-                    System.out.println(wordList.size() + "번 명령이 등록되었습니다.");
+                    String author = sc.nextLine().trim();
+                    int id = wiseSayingIndexId++;
+                    System.out.println(id + "번 명령이 등록되었습니다.");
                     break;
 
                 case "종료":
