@@ -31,7 +31,7 @@ public class App {
                 case "목록":
                     System.out.println("번호 / 작가 / 명언");
                     System.out.println("-----------------");
-                    System.out.println(wiseSaying.toString());
+//                    System.out.println(wiseSaying.toString());
 
 
                 case "종료":
