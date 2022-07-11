@@ -1,9 +1,9 @@
 package com.ll.exam;
 
 public class WiseSaying {
-    private int id;
-    private String sentence;
-    private String author;
+    int id;
+    String sentence;
+    String author;
 
     public WiseSaying(int id, String sentence, String author) {
         this.id = id;
