@@ -67,7 +67,6 @@ public class App {
             System.out.println("id를 입력해주세요.");
             return;
         }
-
         // URL에 입력된 id에 해당하는 명언객체 찾기
         WiseSaying foundwiseSaying = findById(paramId);
 
