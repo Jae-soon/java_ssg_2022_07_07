@@ -27,8 +27,8 @@ public class Rq {
                     continue;
                 }
 
-                String paramName = paramNameAndValue[0].trim();
-                String paramValue = paramNameAndValue[1].trim();
+                String paramName = paramNameAndValue[0].trim(); // id
+                String paramValue = paramNameAndValue[1].trim(); // value
 
                 queryParams.put(paramName, paramValue);
             }
