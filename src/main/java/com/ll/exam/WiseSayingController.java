@@ -5,21 +5,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
-    private List<WiseSaying> wiseSayings;
-    private int wiseSayingLastId;
     private Scanner sc;
+    private WiseSayingRepository wiseSayingRepository;
 
     WiseSayingController(Scanner sc) {
         this.sc = sc;
-        wiseSayings = new ArrayList<>();
-        wiseSayingLastId = 0;
+        wiseSayingRepository = new WiseSayingRepository();
     }
 
     public void list(Rq rq) {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("-------------------");
-        for (int i = wiseSayings.size() - 1; i >= 0; i--) {
-            WiseSaying wiseSaying_ = wiseSayings.get(i);
+        for (int i = wiseSayingRepository.wiseSayings.size() - 1; i >= 0; i--) {
+            WiseSaying wiseSaying_ = wiseSayingRepository.wiseSayings.get(i);
             System.out.printf("%d / %s / %s\n", wiseSaying_.id, wiseSaying_.sentence, wiseSaying_.author);
         }
     }
@@ -29,10 +27,10 @@ public class WiseSayingController {
         String content = sc.nextLine().trim();
         System.out.printf("작가 : ");
         String author = sc.nextLine().trim();
-        int id = ++wiseSayingLastId; // 명언 글 번호 증가
+        int id = ++wiseSayingRepository.wiseSayingLastId; // 명언 글 번호 증가
 
         WiseSaying wiseSaying = new WiseSaying(id, content, author);
-        wiseSayings.add(wiseSaying);
+        wiseSayingRepository.wiseSayings.add(wiseSaying);
 
         System.out.printf("%d번 명언이 등록되었습니다.\n", id);
     }
@@ -84,13 +82,13 @@ public class WiseSayingController {
         }
 
         // 입력된 id에 해당하는 명언객체를 리스트에서 삭제
-        wiseSayings.remove(foundWiseSaying);
+        wiseSayingRepository.wiseSayings.remove(foundWiseSaying);
 
         System.out.printf("%d번 명언이 삭제되었습니다.\n", paramId);
     }
 
     private WiseSaying findById(int paramId) {
-        for (WiseSaying wiseSaying : wiseSayings) {
+        for (WiseSaying wiseSaying : wiseSayingRepository.wiseSayings) {
             if (wiseSaying.id == paramId) {
                 return wiseSaying;
             }
