@@ -42,7 +42,7 @@ public class WiseSayingController {
             System.out.println("id를 입력해주세요.");
             return;
         }
-        WiseSaying foundwiseSaying = findById(paramId);
+        WiseSaying foundwiseSaying = wiseSayingRepository.findById(paramId);
         int id = foundwiseSaying.id;
         String sentence = foundwiseSaying.sentence;
 
@@ -73,7 +73,7 @@ public class WiseSayingController {
         }
 
         // URL에 입력된 id에 해당하는 명언객체 찾기
-        WiseSaying foundWiseSaying = findById(paramId);
+        WiseSaying foundWiseSaying = wiseSayingRepository.findById(paramId);
 
         // 찾지 못했다면 중지
         if (foundWiseSaying == null) {
@@ -85,15 +85,5 @@ public class WiseSayingController {
         wiseSayingRepository.wiseSayings.remove(foundWiseSaying);
 
         System.out.printf("%d번 명언이 삭제되었습니다.\n", paramId);
-    }
-
-    private WiseSaying findById(int paramId) {
-        for (WiseSaying wiseSaying : wiseSayingRepository.wiseSayings) {
-            if (wiseSaying.id == paramId) {
-                return wiseSaying;
-            }
-        }
-
-        return null;
     }
 }
