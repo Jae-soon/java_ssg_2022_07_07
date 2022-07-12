@@ -59,7 +59,7 @@ public class WiseSayingController {
 
         wiseSayingRepository.modify(paramId, sentence, author);
 
-        System.out.printf("%d번 명언이 수정되었습니다.\n", paramId;
+        System.out.printf("%d번 명언이 수정되었습니다.\n", paramId);
     }
 
     public void remove(Rq rq) {
